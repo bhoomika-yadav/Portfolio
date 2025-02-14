@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhoomika Yadav | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --bg-c: #0a192f;
+            --text-c: #e6f1ff;
+            --primary-c: #64ffda;
+            --secondary-c: #8892b0;
+            --hover-bg-c: rgba(100, 255, 218, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-c);
+            color: var(--text-c);
+            line-height: 1.6;
+        }
+
+        .navp {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            z-index: 1000;
+        }
+
+        .nvp_child1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-c);
+        }
+
+        .nav_links a {
+            text-decoration: none;
+            color: var(--text-c);
+            padding: 10px 15px;
+            margin: 0 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav_links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-c);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav_links a:hover {
+            color: var(--primary-c);
+        }
+
+        .nav_links a:hover::after {
+            width: 100%;
+        }
+
+        .section {
+            min-height: 100vh;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 50px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .About {
+            text-align: left;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .About h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--primary-c);
+        }
+
+        .About p {
+            font-size: 1.5rem;
+            color: var(--secondary-c);
+            max-width: 600px;
+        }
+
+        .Skills {
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            background: var(--hover-bg-c);
+        }
+
+        .skill-card img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .Projects {
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            background: var(--hover-bg-c);
+        }
+
+        .project-card h3 {
+            color: var(--primary-c);
+            margin-bottom: 15px;
+        }
+
+        .Contact {
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-c);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-c);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .navp {
+                padding: 0 20px;
+            }
+
+            .nav_links {
+                display: none;
+            }
+
+            .About h1 {
+                font-size: 2.5rem;
+            }
+
+            .About p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body onload="showSection('about')">
+    <div class="navp">
+        <div class="nvp_child1">BY</div>
+        <div class="nav_links">
+            <a onclick="showSection('about')">About</a>
+            <a onclick="showSection('skills')">Skills</a>
+            <a onclick="showSection('projects')">Projects</a>
+            <a onclick="showSection('experience')">Experience</a>
+            <a onclick="showSection('certificate')">Certificate</a>
+            <a onclick="showSection('languages')">Languages</a>
+            <a onclick="showSection('contact')">Contact</a>
+
+        </div>
+    </div>
+
+    <div id="about" class="section About">
+        <div style="display: flex; gap: 50px; align-items: center; flex-wrap: wrap; max-width: 1200px;">
+            <!-- Left side with photo and resume -->
+            <div style="width: 300px; flex-shrink: 0;">
+                <!-- Profile Image -->
+                <div style="margin-bottom: 25px; border-radius: 10px; overflow: hidden; border: 2px solid var(--primary-c); position: relative;">
+                    <!-- Replace src with your actual image path -->
+                    <img src="images/bhoomi.jpeg" alt="Bhoomika Yadav"
+
+                         style="width: 100%; height: auto; display: block; transition: all 0.3s ease;">
+                    <!-- Overlay effect on hover -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
+                                background: rgba(100, 255, 218, 0.1); opacity: 0; 
+                                transition: all 0.3s ease;"></div>
+                </div>
+    
+                <!-- Download Resume Button -->
+                <a href="assests/M Bhoomika yadav (1).pdf"  download="Bhoomika_Yadav_Resume.pdf"
+                    style="display: block; text-align: center; padding: 12px 20px; 
+                        background: transparent; color: var(--primary-c); 
+                        border: 2px solid var(--primary-c); border-radius: 5px; 
+                        text-decoration: none; transition: all 0.3s ease;">
+                    <i class="fas fa-download" style="margin-right: 8px;"></i>
+                    Download Resume
+                </a>
+
+            </div>
+    
+            <!-- Right side content -->
+            <div style="flex: 1; min-width: 300px;">
+                <p style="color: var(--primary-c); margin-bottom: 20px;">Hi, my name is</p>
+                <h1>Bhoomika Yadav.</h1>
+                <h2 style="font-size: 3rem; color: var(--secondary-c); margin-bottom: 20px;">I build things for the web.</h2>
+                <p>"I'm a Python Developer specializing in Django, building efficient trading and investment platforms with seamless backend and API integrations. Passionate about creating scalable, user-friendly solutions with modern front-end technologies."</p>
+                <!-- <p>I'm a Python Developer specializing in building exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products using Django and modern front-end technologies.</p> -->
+            </div>
+        </div>
+    </div>
+    
+    <div id="skills" class="section Skills">
+        <h2 style="color: var(--primary-c); font-size: 2rem;">Skills & Technologies</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <img src="https://img.icons8.com/color/100/python.png" alt="Python">
+                <span>Python</span>
+            </div>
+            <div class="skill-card">
+                <img src="https://img.icons8.com/color/100/django.png" alt="Django">
+                <span>Django</span>
+            </div>
+            <div class="skill-card">
+                <img src="https://img.icons8.com/color/100/mysql.png" alt="MySQL">
+                <span>MySQL</span>
+            </div>
+            <div class="skill-card">
+                <img src="https://img.icons8.com/color/100/javascript.png" alt="JavaScript">
+                <span>JavaScript</span>
+            </div>
+        </div>
+    </div>
+    
+    <div id="projects" class="section Projects">
+        <h2 style="color: var(--primary-c); font-size: 2rem;">Featured Projects</h2>
+        
+        <div class="project-card">
+            <h3>iStreet - Django Trading Platform</h3>
+            <p>A comprehensive trading platform that integrates real-time market data from AngelOne Smart API. Features include account management, real-time trading, recommendation engines, and strategy builders based on historical data.</p>
+            <p style="color: var(--primary-c); margin-top: 15px;">Python • Django • JavaScript • REST API</p>
+        </div>
+        
+        <div class="project-card">
+            <h3>Online Car Rentals</h3>
+            <p>A full-featured car rental service platform built with Django. The system includes vehicle browsing, availability checking, and a seamless booking experience.</p>
+            <p style="color: var(--primary-c); margin-top: 15px;">Python • Django • MySQL • JavaScript</p>
+        </div>
+        <div class="project-card">
+            <h3>VRV - Role-Based Authentication System</h3>
+            <p>"A secure authentication and authorization system with JWT-based role-based access control (RBAC), enabling Admin, Client, and Moderator roles. Features include secure password hashing, user management dashboards, and API-driven access control."</p>
+            <p style="color: var(--primary-c); margin-top: 15px;">Python • Django • JWT • REST API • RBAC • MySQL</p>
+
+        </div>
+        <div class="project-card">
+            <h3>Portfolio Website</h3>
+            <p>A personal portfolio website built with HTML, CSS, and JavaScript. The website showcases my projects, skills, and contact information.</p>
+            <p style="color: var(--primary-c); margin-top: 15px;">HTML • CSS • JavaScript</p>
+        </div>
+    </div>
+    <div id="experience" class="section Experience">
+        <h2 style="color: var(--primary-c); font-size: 2rem;"></h2>
+        <div class="project-card">
+            <h3>Python Developer</h3>
+            <p style="color: var(--primary-c); margin: 5px 0;">Vividhithy ventures Pvt Ltd</p>
+            <p style="color: var(--secondary-c); margin-bottom: 15px;">August 2023 - Present</p>
+            
+            <div style="margin: 20px 0;">
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 10px; position: relative; padding-left: 20px;">
+                        <span style="position: absolute; left: 0; color: var(--primary-c);">▹</span>
+                        Developed and maintained iStreet trading platform using Python Django framework, creating responsive interfaces
+                    </li>
+                    <li style="margin-bottom: 10px; position: relative; padding-left: 20px;">
+                        <span style="position: absolute; left: 0; color: var(--primary-c);">▹</span>
+                        Integrated Angel One Smart API for real-time market data visualization and trading application logic
+                    </li>
+                    <li style="margin-bottom: 10px; position: relative; padding-left: 20px;">
+                        <span style="position: absolute; left: 0; color: var(--primary-c);">▹</span>
+                        Built recommendation engines and strategy builders for data-driven trading decisions
+                    </li>
+                    <li style="margin-bottom: 10px; position: relative; padding-left: 20px;">
+                        <span style="position: absolute; left: 0; color: var(--primary-c);">▹</span>
+                        Managed website data using MySQL database and XAMPP server for optimal performance
+                    </li>
+                    <li style="margin-bottom: 10px; position: relative; padding-left: 20px;">
+                        <span style="position: absolute; left: 0; color: var(--primary-c);">▹</span>
+                        Collaborated in an agile environment with daily stand-ups and sprint planning
+                    </li>
+                </ul>
+            </div>
+            
+            <p style="color: var(--primary-c); margin-top: 15px;">Python • Django • JavaScript • MySQL • REST API • HTML • CSS • Bootstrap</p>
+        </div>
+    </div>
+    <div id="certificate" class="section Certificate">
+        <h2 style="color: var(--primary-c); font-size: 2rem;">Certificates</h2>
+        <div class="project-card">
+            <h3>Python Full Stack Development</h3>
+            <p style="color: var(--secondary-c);">Palle Technologies, Bangalore</p>
+            <p style="color: var(--primary-c); margin-top: 10px;">Full Stack Web Development with Python and Django</p>
+        </div>
+        
+        <div class="project-card">
+            <h3>Introduction to Python Basics</h3>
+            <p style="color: var(--secondary-c);">HackerRank</p>
+            <p style="color: var(--primary-c); margin-top: 10px;">Python Programming Fundamentals</p>
+        </div>
+    </div>
+    
+    <div id="languages" class="section Languages">
+        <h2 style="color: var(--primary-c); font-size: 2rem;">Languages</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3 style="color: var(--primary-c);">English</h3>
+                <p style="color: var(--secondary-c);">Professional</p>
+            </div>
+            
+            <div class="skill-card">
+                <h3 style="color: var(--primary-c);">Telugu</h3>
+                <p style="color: var(--secondary-c);">Native</p>
+            </div>
+            
+            <div class="skill-card">
+                <h3 style="color: var(--primary-c);">Tamil</h3>
+                <p style="color: var(--secondary-c);">Native</p>
+            </div>
+            <div class="skill-card">
+                <h3 style="color: var(--primary-c);">Hindi</h3>
+                <p style="color: var(--secondary-c);">Basic</p>
+            </div>
+            <div class="skill-card">
+                <h3 style="color: var(--primary-c);">Kannada</h3>
+                <p style="color: var(--secondary-c);">Basic</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="contact" class="section Contact">
+        <h2 style="color: var(--primary-c); font-size: 2rem;">Get In Touch</h2>
+        <p style="text-align: center; max-width: 600px;">I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+        <a href="mailto:bhoomikayadav2001@gmail.com" style="color: var(--primary-c); text-decoration: none; border: 1px solid var(--primary-c); padding: 15px 30px; border-radius: 5px; transition: all 0.3s ease;">
+            Say Hello
+        </a>
+        <div class="social-links">
+            <a href="https://github.com/bhoomika-yadav"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/meravala-bhoomika-yadav-860b3a237/"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
