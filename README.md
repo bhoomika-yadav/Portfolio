@@ -1,1 +1,2 @@
 # Portfolio
+Developed a personal portfolio website to showcase projects, skills, and professional experience. Designed and built the application using HTML, CSS, JavaScript, and Django, ensuring a responsive and visually appealing user interface. Implemented smooth navigation, project highlights, and interactive elements to enhance user engagement. Deployed the website on a live server and managed version control using Git.
